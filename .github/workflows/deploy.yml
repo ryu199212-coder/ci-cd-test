@@ -76,7 +76,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           source: "back/build/libs/*"
-          target: "/home/ubuntu/app/back/build/libs"
+          target: "/home/ubuntu/app"
 
       - name: Debug EC2 app directory
         uses: appleboy/ssh-action@v0.1.7
@@ -123,8 +123,9 @@ jobs:
             cd /home/ubuntu/app/back/build/libs
             pm2 delete backend || true
             export $(cat /home/ubuntu/app/.env | xargs)
-            pm2 start java --name backend -- -jar $(basename ${{ env.JAR_FILE }})
+            pm2 start java --name backend -- -jar  back-0.0.1-SNAPSHOT.jar
         # 🔧    pm2 start java --name backend -- -jar ${{ env.JAR_FILE }}
+ 
 
   frontend:
     runs-on: ubuntu-latest
