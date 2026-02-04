@@ -3,7 +3,7 @@ name: Deploy Fullstack App
 on:
   push:
     branches:
-      - main   # main브랜치에 push 될 때만 실행            
+      - main   # main브랜치에 push 될 때만 실행              
 
 jobs:
   backend:
@@ -124,8 +124,6 @@ jobs:
             pm2 delete backend || true
             export $(cat /home/ubuntu/app/.env | xargs)
             pm2 start java --name backend -- -jar ${{ env.JAR_FILE }}
-
-
 
   frontend:
     runs-on: ubuntu-latest
