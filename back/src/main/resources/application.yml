@@ -28,8 +28,8 @@ spring:
   config:
     import:
       - optional:application-oauth.yml
-      - optional:file:.env[.properties]
-
+      #- optional:file:.env[.properties]
+      - optional:file:/home/ubuntu/app/back/.env[.properties]
 mybatis:
   config-location: classpath:mybatis-config.xml
   mapper-locations: classpath:mapper/**/*.xml
