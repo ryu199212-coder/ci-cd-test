@@ -69,8 +69,4 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
-// Swagger에서 파라미터 이름 유지
-tasks.withType(JavaCompile).configureEach {
-    options.compilerArgs.add("-parameters")
-}
  
