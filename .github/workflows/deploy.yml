@@ -122,10 +122,13 @@ jobs:
           script: |
             cd /home/ubuntu/app/back/build/libs
             pm2 delete backend || true
-            export $(cat /home/ubuntu/app/.env | xargs)
-            pm2 start java --name backend -- -jar  back-0.0.1-SNAPSHOT.jar
-        # 🔧    pm2 start java --name backend -- -jar ${{ env.JAR_FILE }}
- 
+            pm2 start "java -jar back-0.0.1-SNAPSHOT.jar" --name backend
+#     cd /home/ubuntu/app/back/build/libs
+#     pm2 delete backend || true
+#     export $(cat /home/ubuntu/app/.env | xargs)
+#     pm2 start java --name backend -- -jar ${{ env.JAR_FILE }}
+
+
 
   frontend:
     runs-on: ubuntu-latest
