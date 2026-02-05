@@ -59,7 +59,7 @@ public class SecurityConfig {
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             // 권한 설정
             .authorizeHttpRequests(auth -> auth
-            	    .requestMatchers(HttpMethod.OPTIONS , "/**").permitAll()  //#####
+            	.requestMatchers(HttpMethod.OPTIONS , "/**").permitAll()  //#####
                 // Swagger, 인증 관련 경로는 모두 허용  ------ 점검 ; uploads
                 .requestMatchers(
                     "/auth/**", "/login/**", "/oauth2/**",
@@ -98,7 +98,7 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         
         // 												개발환경 					운영환경(nginx 통해서 접근하는 실제주소)
-        configuration.setAllowedOriginPatterns(List.of("http://localhost:3000" , "http://54.180.142.97"));  //★ Front 포트번호
+        configuration.setAllowedOriginPatterns(List.of("http://localhost:3000" , "http://54.180.92.192"));  //★ Front 포트번호
 
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
