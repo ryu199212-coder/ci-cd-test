@@ -48,7 +48,7 @@ file:
   # upload-dir: uploads
 
 server:
-  port: 8080
+  port: 8484
 
 jackson:
   time-zone: UTC
